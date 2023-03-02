@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Mynerve&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Golos+Text&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Golos Text', sans-serif;
+}
+
+.card {
+    width: 16rem;
+    background-color: rgb(236, 235, 231);
+    height: 24rem;
+    display: flex;
+    padding: 0.1rem;
+    border-radius: 7px;
+    backdrop-filter: blur(2px);
+    padding-bottom: 0.5rem;
+}
+
+img {
+    width: 100%;
+    color: blue;
+    height: 13rem;
+    border-radius: 7px;
+}
+
+.about {
+    display: flex;
+    flex-direction: column;
+    padding: 0.5rem;
+}
+
+.about .title {
+    font-weight: bolder;
+    font-size: 1.1rem;
+    margin: 0;
+    margin: 0.5rem;
+    margin-left: 0;
+}
+
+.about-food {
+    margin: 0;
+    font-size: 1rem;
+}
+
+select {
+    width: 4.6rem;
+    margin-left: 0.5rem;
+}
+
+.select-1 {
+    width: 3rem;
+}
+
+.total {
+    font-size: 1.1rem;
+    font-weight: bolder;
+    margin-top: 0.5rem;
+    margin-left: 0.5rem;
+}
+
+.FoodCatName {
+    font-size: 2rem;
+    margin: 1rem;
+    font-family: 'Mynerve', cursive;
+}
+
+.section {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.fooditems {
+    margin: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.itemsection {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+hr {
+    width: 40rem;
+    border: 2px solid orange;
+    border-radius: 50px;
+    margin: 0;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+}
+
+.cartbutton{
+    border: 1px solid orangered;
+    margin: 0.5rem;
+    width: 8rem;
+    background-color: rgb(245, 233, 212);
+}
+
+.cartbutton:hover{
+    background-color: rgb(178, 113, 238);
+    transition: 0.5s ease-in-out;
+    color: white;
+}

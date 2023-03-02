@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Golos+Text&display=swap');
+.Mainform{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-field{
+    width: 40rem;
+    height: 3rem;
+    padding-left: 1rem;
+    border: 2px solid blue;
+    border-radius: 5px;
+    background-color: rgb(246, 232, 206);
+    font-family: 'Golos Text', sans-serif;
+}
+
+input:focus{
+    outline-width: 0;
+    outline: none;
+}
+
+.search-btn{
+    width: 10rem;
+    height: 3rem ;
+    border: 2px solid blue;
+    border-radius: 5px;
+    background-color: rgb(246, 232, 206);
+}
+
+@media(max-width: 870px){
+    .input-field{
+        width: 30rem;
+    }
+    .search-btn{
+        width: 5rem;
+    }
+}
+
+@media(max-width: 620px){
+    .Mainform{
+        flex-direction: column;
+        margin-top: 1rem;
+    }
+    .input-field{
+        width: 30rem;
+    }
+    .search-btn{
+        width: 7rem;
+    }
+}
+
+@media(max-width: 500px){
+    .input-field{
+        width: 17rem;
+        height: 2.5rem;
+    }
+    .search-btn{
+        width: 7rem;
+        height: 2.5rem;
+
+    }
+}

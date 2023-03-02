@@ -1,0 +1,23 @@
+.tt{
+    color: black;
+}
+
+.tt1{
+    display: block;
+    width: 100%;
+}
+
+.img{
+    width: 2rem;
+    height: 2rem;
+    margin: 0;
+    padding: 0;
+    color: white;
+}
+
+.mainnboxx{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
