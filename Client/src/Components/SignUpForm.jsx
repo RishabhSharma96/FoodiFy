@@ -1,6 +1,8 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import '../styles/signupStyles.css'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 export default function SignUpForm() {
 
@@ -30,11 +32,11 @@ export default function SignUpForm() {
         const json = await response.json()
         console.log(json)
 
-        //if (!json.success) {
-        //    alert("Enter valid Credentials")
-        //}
         if (json.success) {
-            navigate("/login")
+            toast("User created Successfully!")
+            setTimeout(() => {
+                navigate("/login")
+            }, 1000);
         }
     }
 
@@ -95,6 +97,9 @@ export default function SignUpForm() {
 
                 </div>
             </form>
+            <ToastContainer
+                theme='dark'
+            />
         </div>
     )
 }

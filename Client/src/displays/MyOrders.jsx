@@ -18,20 +18,24 @@ export default function MyOrder() {
       })
     }).then(async (res) => {
       let response = await res.json()
-      await setorderData(response)
+
+      setorderData(response)
+      // console.log(orderData)
+      // console.log(response)
+
     })
   }
 
   useEffect(() => {
     fetchMyOrder()
-    console.log(orderData)
+    // console.log(orderData)
   }, [])
 
   return (
     <div>
       <div><Navbar /></div>
 
-      {/* {console.log(orderData)} */}
+      {console.log(orderData)}
 
       <div className='container'>
         <div className='row'>

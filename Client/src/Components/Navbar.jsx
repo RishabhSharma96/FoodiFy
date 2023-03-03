@@ -2,8 +2,6 @@ import Badge from "react-bootstrap/Badge"
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import '../styles/navbarStyles.css'
-import Modal from "../Modal.jsx";
-import Cart from "../displays/Cart.jsx"
 import { useCart } from "./ContextReducer";
 
 

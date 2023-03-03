@@ -1,10 +1,12 @@
 import React from 'react'
 import "../styles/loginStyles.css"
 import { useNavigate } from 'react-router-dom'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 
 export default function LoginForm() {
-    
+
     const navigate = useNavigate()
 
     const [credentials, setcredentials] = React.useState({
@@ -27,14 +29,17 @@ export default function LoginForm() {
         const json = await response.json()
         console.log(json)
 
-        // if (!json.success) {
-        //     alert("Enter valid Credentials")
-        // }
         if (json.success) {
-            localStorage.setItem("useremail" , credentials.email)
-            localStorage.setItem("authToken" , json.authToken)
+            localStorage.setItem("useremail", credentials.email)
+            localStorage.setItem("authToken", json.authToken)
             console.log(localStorage.getItem("authToken"))
-            navigate("/")
+            toast("Login Successful!")
+            setTimeout(() => {
+                navigate("/")
+            }, 1000);
+        }
+        else {
+            toast("Please enter valid credentials!")
         }
     }
 
@@ -73,6 +78,9 @@ export default function LoginForm() {
 
                 </div>
             </form>
+            <ToastContainer
+                theme='dark'
+            />
         </div>
     )
 }

@@ -5,12 +5,14 @@ const Order = require('../schema/Orders.js')
 
 router.post('/orderdata', async (req, res) => {
     let data = req.body.order_data
-    await data.splice(0, 0, { Order_date: req.body.order_date })
-    let databaseData = await Order.find({ email: req.body.email })
-    console.log(databaseData)
-    console.log(req.body.email)
     console.log(data)
-    if (databaseData !== []) {
+    await data.splice(0, 0, { Order_date: req.body.order_date })
+    // console.log(req.body.order_date)
+    let databaseData = await Order.find({ email: req.body.email })
+    // console.log(databaseData)
+    // console.log(req.body.email)
+    console.log(data)
+    if (databaseData === null) {
         console.log("try1");
         try {
             console.log("try");

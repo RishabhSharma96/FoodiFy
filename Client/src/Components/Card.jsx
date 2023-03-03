@@ -2,6 +2,8 @@ import React, { useEffect, useRef, useState } from 'react'
 // import { options } from '../../../backend/routes/userRegAndLogin'
 import '../styles/cardStyles.css'
 import { useCart, useDispatch } from './ContextReducer'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 export default function Card(props) {
 
@@ -17,6 +19,8 @@ export default function Card(props) {
     const [size, setSize] = useState("")
 
     const handleCartAdding = async () => {
+
+        toast(`${props.foodItem.name} added to cart`)
 
         let food = []
         for (const item of data) {
@@ -91,6 +95,10 @@ export default function Card(props) {
                     <button className="cartbutton" onClick={handleCartAdding}>Add to Cart</button>
                 </div>
             </div>
+            <ToastContainer
+                theme='dark'
+                autoClose={1500}
+            />
         </div>
     )
 }
