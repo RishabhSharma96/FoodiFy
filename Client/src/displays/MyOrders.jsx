@@ -35,16 +35,19 @@ export default function MyOrder() {
     <div>
       <div><Navbar /></div>
 
-      {console.log(orderData)}
+      {/* {console.log(orderData)} */}
 
       <div className='container'>
         <div className='row'>
           {orderData !== {} ? Array(orderData).map(data => {
+            console.log(data)
             return (
               data.orderData ?
                 data.orderData.order_data.slice(0).reverse().map((item) => {
+                  // console.log(item)
                   return (
                     item.map((arrayData) => {
+                      // console.log(orderData)
                       return (
                         <div  >
                           {arrayData.Order_date ? <div className='m-auto mt-5'>
@@ -60,7 +63,7 @@ export default function MyOrder() {
                                     <span className='m-1'>{arrayData.size}</span>
                                     <span className='m-1'>{data}</span>
                                     <div className=' d-inline ms-2 h-100 w-20 fs-5' >
-                                      ₹{arrayData.price}/-
+                                      ₹ {arrayData.price}/-
                                     </div>
                                   </div>
                                 </div>
@@ -71,9 +74,9 @@ export default function MyOrder() {
                       )
                     })
                   )
-                }) : ""
+                }) : "No orders yet"
             )
-          }) : ""}
+          }) : "No orders yet"}
         </div>
 
 

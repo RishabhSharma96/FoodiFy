@@ -20,6 +20,8 @@ export default function Card(props) {
 
     const handleCartAdding = async () => {
 
+        if(!localStorage.getItem("useremail")){
+
         toast(`${props.foodItem.name} added to cart`)
 
         let food = []
@@ -61,6 +63,10 @@ export default function Card(props) {
             quantity: quantity,
             size: size
         })
+    }
+    else{
+        toast("Please login first")
+    }
     }
 
     let finalPrice = quantity * parseInt(props.options[size])
