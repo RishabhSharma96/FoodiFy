@@ -49,7 +49,7 @@ export default function LoginForm() {
 
     return (
         <div className='boxer'>
-            <form className="container" onClick={handleSubmit}>
+            <form className="container">
                 <div className="carddd">
                     <div className="singup">Login</div>
                     <div className="inputBox1">
@@ -74,7 +74,7 @@ export default function LoginForm() {
                         <span>Password</span>
                     </div>
 
-                    <button className="enter" type="submit">Login</button>
+                    <button className="enter" type="submit" onClick={handleSubmit}>Login</button>
 
                 </div>
             </form>

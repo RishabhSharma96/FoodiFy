@@ -1,6 +1,6 @@
 import HomePage from "./displays/HomePage";
 import SignUp from "./displays/SignUp"; 
-import MyOrders from "./displays/MyOrders"; 
+import MyOrder from "./displays/MyOrders"; 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom"
 import Login from "./displays/Login";
 import { CartProvider } from "./Components/ContextReducer";
@@ -17,7 +17,7 @@ function App() {
             <Route exact path="/createuser" element={<SignUp />} />
             <Route exact path="/login" element={<Login />} />
             <Route exact path="/cart" element={<Cart />} />
-            <Route exact path="/orders" element={ < MyOrders />} />
+            <Route exact path="/orders" element={ < MyOrder />} />
 
           </Routes>
         </div>

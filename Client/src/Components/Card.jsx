@@ -1,11 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react'
-// import { options } from '../../../backend/routes/userRegAndLogin'
 import '../styles/cardStyles.css'
 import { useCart, useDispatch } from './ContextReducer'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import { useNavigate } from 'react-router-dom'
 
 export default function Card(props) {
+
+    const navigate = useNavigate()  
 
     let dispatch = useDispatch()
     let data = useCart()
@@ -20,53 +22,56 @@ export default function Card(props) {
 
     const handleCartAdding = async () => {
 
-        if(!localStorage.getItem("useremail")){
+        if (localStorage.getItem("useremail")) {
+            
+            toast(`${props.foodItem.name} added to cart`)
 
-        toast(`${props.foodItem.name} added to cart`)
-
-        let food = []
-        for (const item of data) {
-            if (item.id === props.foodItem._id) {
-                food = item
-                break
+            let food = []
+            for (const item of data) {
+                if (item.id === props.foodItem._id) {
+                    food = item
+                    break
+                }
             }
-        }
 
-        if (food !== []) {
-            if (food.size === size) {
-                await dispatch({
-                    type: "UPDATE",
-                    id: props.foodItem._id,
-                    price: finalPrice,
-                    quantity: quantity
-                })
+            if (food !== []) {
+                if (food.size === size) {
+                    await dispatch({
+                        type: "UPDATE",
+                        id: props.foodItem._id,
+                        price: finalPrice,
+                        quantity: quantity
+                    })
+                    return
+                }
+                else if (food.size !== size) {
+                    await dispatch({
+                        type: "ADD",
+                        id: props.foodItem._id,
+                        name: props.foodItem.name,
+                        price: finalPrice,
+                        quantity: quantity,
+                        size: size
+                    })
+                    return
+                }
                 return
             }
-            else if (food.size !== size) {
-                await dispatch({
-                    type: "ADD",
-                    id: props.foodItem._id,
-                    name: props.foodItem.name,
-                    price: finalPrice,
-                    quantity: quantity,
-                    size: size
-                })
-                return
-            }
-            return
+            await dispatch({
+                type: "ADD",
+                id: props.foodItem._id,
+                name: props.foodItem.name,
+                price: finalPrice,
+                quantity: quantity,
+                size: size
+            })
         }
-        await dispatch({
-            type: "ADD",
-            id: props.foodItem._id,
-            name: props.foodItem.name,
-            price: finalPrice,
-            quantity: quantity,
-            size: size
-        })
-    }
-    else{
-        toast("Please login first")
-    }
+        else {
+            toast("Please login first")
+            setTimeout(() => {
+                navigate("/login")
+            }, 1500);
+        }
     }
 
     let finalPrice = quantity * parseInt(props.options[size])
@@ -103,7 +108,7 @@ export default function Card(props) {
             </div>
             <ToastContainer
                 theme='dark'
-                autoClose={1500}
+                autoClose={500}
             />
         </div>
     )

@@ -7,7 +7,7 @@ require('./connection.js')
 const server = express() 
 const port = process.env.PORT 
 
-// server.use(cors())
+server.use(express.json())
 
 server.use((req,res,next) => {
     res.setHeader("Access-Control-Allow-Origin","http://localhost:3000")

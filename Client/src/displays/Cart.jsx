@@ -5,6 +5,8 @@ import Footer from '../Components/Footer.jsx';
 import Navbar from '../Components/Navbar.jsx';
 import "../styles/cartStyles.css"
 import trash from "../trash.png"
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 export default function Cart() {
 
@@ -12,12 +14,6 @@ export default function Cart() {
 
     let data = useCart()
     let dispatch = useDispatch()
-
-    // if (data.length === 0) {
-    //     return (
-
-    //     )
-    // }
 
     const handleCheckOut = async () => {
         let userEmail = localStorage.getItem("useremail");
@@ -32,7 +28,7 @@ export default function Cart() {
                 order_data: data,
                 order_date: new Date().toDateString()
             })
-        });
+        })
         if (response.status === 200) {
             dispatch({ type: "DROP" })
             navigate("/")
@@ -53,7 +49,7 @@ export default function Cart() {
                     {/* {console.log(data)} */}
                     <div className='container m-auto mt-5 table-responsive table-responsive-sm table-responsive-md mainnboxx' >
                         <table className='table table-hover '>
-                            <thead className=' fs-4' style={{"color":"orange"}}>
+                            <thead className=' fs-4' style={{ "color": "orange" }}>
                                 <tr>
                                     <th scope='col' >#</th>
                                     <th scope='col' >Name</th>
@@ -71,7 +67,11 @@ export default function Cart() {
                                         <td className='tt'>{food.quantity}</td>
                                         <td className='tt'>{food.size}</td>
                                         <td className='tt'>{food.price}</td>
-                                        <td ><button type="button" className="img"><img src={trash} className="img" alt="trash" onClick={() => { dispatch({ type: "REMOVE", index: index }) }} /></button> </td>
+                                        <td ><button type="button" className="img"><img src={trash} className="img" alt="trash" onClick={() => {
+                                            dispatch({ type: "REMOVE", index: index })
+                                            toast(`${food.name} removed from cart`)
+                                        }
+                                        } /></button> </td>
                                     </tr>
                                 ))}
                             </tbody>
@@ -80,13 +80,18 @@ export default function Cart() {
                             <h1 className='fs-2 tt'>Total Price: {totalPrice}/-</h1>
                         </div>
                         <div>
-                            <button className='btn mt-5 ' style={{"padding" : "4px", "width" : "10rem", "color":"white", "backgroundColor":"orange"}} onClick={handleCheckOut}> Check Out </button>
+                            <button className='btn mt-5 ' style={{ "padding": "4px", "width": "10rem", "color": "white", "backgroundColor": "orange" }} onClick={handleCheckOut}> Check Out </button>
                         </div>
                     </div>
                 </div>
             }
             <div className='footer-for-orders' style={{ 'position': 'absolute', "top": "91vh", "width": "100vw" }}><Footer /></div>
 
+            <ToastContainer
+                theme='dark'
+                autoClose={500}
+            />
         </div>
+
     )
 }

@@ -38,6 +38,9 @@ export default function SignUpForm() {
                 navigate("/login")
             }, 1000);
         }
+        else{
+            toast("Enter required fields")
+        }
     }
 
     const onChange = (e) => {
@@ -46,7 +49,7 @@ export default function SignUpForm() {
 
     return (
         <div className='boxer'>
-            <form className="container" onClick={handleSubmit}>
+            <form className="container" >
                 <div className="cardd">
                     <div className="singup">Sign Up</div>
                     <div className="inputBox1">
@@ -93,12 +96,13 @@ export default function SignUpForm() {
                         <span>Password</span>
                     </div>
 
-                    <button className="enter" type="submit">Sign Up</button>
+                    <button className="enter" onClick={handleSubmit} type="submit">Sign Up</button>
 
                 </div>
             </form>
             <ToastContainer
                 theme='dark'
+                autoClose={1500}
             />
         </div>
     )
