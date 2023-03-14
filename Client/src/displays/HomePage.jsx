@@ -4,6 +4,7 @@ import Carousel from '../Components/Carousel'
 import Card from '../Components/Card'
 import { useEffect, useState } from 'react'
 import "../styles/searchStyles.css"
+import Loader from '../Components/Loader'
 
 export default function HomePage() {
 
@@ -11,6 +12,7 @@ export default function HomePage() {
   const [foodCategory, setfoodCategory] = useState([])
 
   const [search, setsearch] = useState("")
+  const [openLoader,setOpenLoader] = useState(true)
 
 
   const loaddata = async () => {
@@ -30,6 +32,16 @@ export default function HomePage() {
   useEffect(() => {
     loaddata()
   }, [])
+
+  useEffect(() => {
+    setTimeout(() => {
+        setOpenLoader(false);
+    }, 1000);
+}, [])
+
+
+if (openLoader)
+    return <Loader />
 
   return (
     <div>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { useCart, useDispatch } from '../Components/ContextReducer.jsx';
 import Footer from '../Components/Footer.jsx';
@@ -7,10 +7,13 @@ import "../styles/cartStyles.css"
 import trash from "../trash.png"
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import Loader from '../Components/Loader.jsx';
 
 export default function Cart() {
 
     const navigate = useNavigate()
+
+    const [openLoader, setOpenLoader] = useState(true)
 
     let data = useCart()
     let dispatch = useDispatch()
@@ -36,6 +39,17 @@ export default function Cart() {
     }
 
     let totalPrice = data.reduce((total, food) => total + food.price, 0)
+
+    useEffect(() => {
+        setTimeout(() => {
+            setOpenLoader(false);
+        }, 1000);
+    }, [])
+
+
+    if (openLoader)
+        return <Loader />
+
     return (
         <div>
             <div><Navbar /></div>

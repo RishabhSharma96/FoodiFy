@@ -1,11 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import Footer from '../Components/Footer';
+import Loader from '../Components/Loader';
 import Navbar from '../Components/Navbar';
 import "../styles/MyOrderStyles.css"
 
 export default function MyOrder() {
 
-  const [orderedData, setorderedData] = useState([])
+  const [orderedData, setorderedData] = useState([]);
+
+  const [openLoader, setOpenLoader] = useState(true);
+
 
   const fetchMyOrder = async () => {
     await fetch("http://localhost:5000/api/myorderdata", {
@@ -48,6 +52,16 @@ export default function MyOrder() {
   }, [])
 
 
+  useEffect(() => {
+    setTimeout(() => {
+      setOpenLoader(false);
+    }, 1000);
+  }, [])
+
+
+  if(openLoader)
+  return <Loader/>
+
   return (
     <div>
       <div>
@@ -80,7 +94,7 @@ export default function MyOrder() {
                               Size : <span>{items.size}</span>
                               <div>
                                 Price : ₹{items.price}/-
-                              </div> 
+                              </div>
                             </div>
                           </div>
                         </div>
@@ -93,7 +107,7 @@ export default function MyOrder() {
           </div>)
       })}
 
-      <div className='footer-for-orders' style={{"marginTop" : "2rem" ,'position': 'relative', "bottom": "0", "width": "100%" , "overflow" : "hidden"}}><Footer /></div>
+      <div className='footer-for-orders' style={{ "marginTop": "2rem", 'position': 'relative', "bottom": "0", "width": "100%", "overflow": "hidden" }}><Footer /></div>
     </div>
   )
 }
