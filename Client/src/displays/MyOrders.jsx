@@ -66,20 +66,21 @@ export default function MyOrder() {
                       <div className='myorder-heading'>
                         {items.Order_date}
                       </div>
-                      <hr />
+                      <hr className='hr-for-myorders' />
                     </div>
                     :
-                    <div className='cards-food'>
-                      <div className='col-12 col-md-6 col-lg-3' >
-                        <div className="card mt-3" style={{ width: "16rem", maxHeight: "100px" }}>
+                    <div className='cards-food m-2'>
+                      <div>
+                        <div className="card mt-3" style={{ width: "16rem", maxHeight: "140px" }}>
                           <div className="card-body">
                             <h5 className="card-title">{items.name}</h5>
-                            <div className='container w-100 p-0' style={{ height: "38px" }}>
-                              <span className='m-1'>{items.quantity}</span>
-                              <span className='m-1'>{items.size}</span>
-                              <div className=' d-inline ms-2 h-100 w-20 fs-5' >
-                                ₹{items.price}/-
-                              </div>
+                            <div style={{ height: "38px" }}>
+                              Quantity : <span>{items.quantity}</span>
+                              <br />
+                              Size : <span>{items.size}</span>
+                              <div>
+                                Price : ₹{items.price}/-
+                              </div> 
                             </div>
                           </div>
                         </div>
@@ -92,7 +93,7 @@ export default function MyOrder() {
           </div>)
       })}
 
-      <div className='footer-for-orders' style={{ 'position': 'relative', "bottom": "0", "width": "100%" , "overflow" : "hidden"}}><Footer /></div>
+      <div className='footer-for-orders' style={{"marginTop" : "2rem" ,'position': 'relative', "bottom": "0", "width": "100%" , "overflow" : "hidden"}}><Footer /></div>
     </div>
   )
 }

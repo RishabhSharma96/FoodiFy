@@ -7,6 +7,26 @@
     box-sizing: border-box;
 }
 
-.food-date-cards{
-    border: 2px solid red;
+.myorder-heading{
+    font-weight: bold;
+    font-size: 2rem;
+    margin-left: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.hr-for-myorders{
+    width: 90vw;
+    overflow: hidden;
+}
+
+.cardfooD{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.cards-food{
+    display: flex;
+    flex-direction: column;
 }
