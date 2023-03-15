@@ -25,5 +25,3 @@ PORT = 5000
 ITEM_COLLECTION_NAME = food_items
 ITEM_CATEGORY_NAME = food_categories
 AUTH_KEY = <JWT secret key>```
-  
-                
