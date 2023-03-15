@@ -20,7 +20,7 @@ To install the dependencies, run the following command in the root directory of 
 
 Create a `.env` file in the root directory and add the following environment variables:
 
-```MONGO_DB_URI = <your mongo db uri>```
+```MONGO_DB_URI = <your_mongo_db_uri>```
   
 ```PORT = 5000```
   
@@ -28,7 +28,7 @@ Create a `.env` file in the root directory and add the following environment var
   
 ```ITEM_CATEGORY_NAME = food_categories```
   
-```AUTH_KEY = <JWT secret key>```
+```AUTH_KEY = <JWT_secret_key>```
 
 
 ## Running the Application
