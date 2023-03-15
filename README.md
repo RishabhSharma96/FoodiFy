@@ -40,4 +40,13 @@ To start the server, run the following command in the backend directory:
 To start the client, run the following command in a new terminal window inside the client directory:
 
 ```npm start```
+  
+  
+The server will be running on `http://localhost:5000` and the client will be running on `http://localhost:3000`.
+
+## Populating the Database
+
+The application uses MongoDB as the database. To populate the database with sample data, import the JSONs in client/JSONs as food_items and food_categories
+
+
 
