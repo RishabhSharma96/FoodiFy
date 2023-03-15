@@ -25,3 +25,15 @@ PORT = 5000
 ITEM_COLLECTION_NAME = food_items
 ITEM_CATEGORY_NAME = food_categories
 AUTH_KEY = <JWT secret key>```
+
+
+## Running the Application
+
+To start the server, run the following command in the backend directory:
+
+```npm run dev```
+
+To start the client, run the following command in a new terminal window inside the client directory:
+
+```npm start```
+
