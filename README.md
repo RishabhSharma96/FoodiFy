@@ -48,5 +48,22 @@ The server will be running on `http://localhost:5000` and the client will be run
 
 The application uses MongoDB as the database. To populate the database with sample data, import the JSONs in client/JSONs as food_items and food_categories
 
+  
+## Testing
+
+To run the unit tests, run the following command in the root directory:
+
+```npm test```
+  
+  
+  
+## Contributing
+
+If you want to contribute to this project, please fork this repository and create a pull request with your changes.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
 
 
