@@ -1,42 +1,43 @@
 @import url('https://fonts.googleapis.com/css2?family=Mynerve&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Golos+Text&display=swap');
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-nav{
+nav {
     display: flex;
     flex-direction: row;
     height: 5rem;
     background-color: rgb(245, 122, 0);
-    align-items: center;  
-    padding-left: 2rem;  
-    padding-right: 2rem;  
+    align-items: center;
+    padding-left: 2rem;
+    padding-right: 2rem;
     justify-content: space-between;
     position: sticky;
+    z-index: 1;
 }
 
-.left-context{
+.left-context {
     display: flex;
     flex-direction: row;
 }
 
-.links{
+.links {
     margin-left: 3rem;
     margin-top: 15px;
 }
 
-.links ul{
+.links ul {
     display: flex;
     flex-direction: row;
 }
 
-li{
+li {
     list-style-type: none;
-    margin: 1rem ;
+    margin: 1rem;
     cursor: pointer;
     font-size: large;
     font-weight: bold;
@@ -44,7 +45,7 @@ li{
     font-family: 'Golos Text', sans-serif;
 }
 
-button{
+button {
     height: 2.5rem;
     width: 6rem;
     margin: 1rem;
@@ -53,7 +54,8 @@ button{
     cursor: pointer;
 }
 
-.btn-1 , .btn-2{
+.btn-1,
+.btn-2 {
     border: 3px solid rgb(252, 87, 5);
     background-color: rgb(241, 233, 16);
     font-size: 1rem;
@@ -62,12 +64,12 @@ button{
     font-family: 'Golos Text', sans-serif;
 }
 
-li:hover{
+li:hover {
     color: blue;
     text-decoration: underline;
 }
 
-.logo{
+.logo {
     font-size: 2.5rem;
     font-weight: bolder;
     color: rgb(76, 4, 76);
@@ -75,24 +77,31 @@ li:hover{
     margin-top: 15px;
 }
 
-i{
+i {
     font-weight: bolder;
     font-size: 2rem;
 }
 
-#mobile{
+#mobile {
     display: none;
 }
 
-a{
+a {
     text-decoration: none;
 }
 
-@media (max-width : 760px){
-    .logo{
+@media (max-width : 760px) {
+
+    nav {
+        z-index: 1;
+        position: relative;
+    }
+
+    .logo {
         font-size: 2rem;
     }
-    .links ul{
+
+    .links ul {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -107,7 +116,7 @@ a{
         z-index: 2000;
     }
 
-    .right-context{
+    .right-context {
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -122,15 +131,15 @@ a{
         z-index: 2000;
     }
 
-    .active{
+    .active {
         right: 0px;
     }
 
-    .links .active{
+    .links .active {
         right: 0px;
     }
 
-    #mobile{
+    #mobile {
         display: block;
     }
 }
