@@ -85,7 +85,7 @@ export default function MyOrder() {
                     :
                     <div className='cards-food m-2'>
                       <div>
-                        <div className="card mt-3" style={{ width: "16rem", maxHeight: "140px" }}>
+                        <div className="card mt-2 ml-2" style={{ width: "16rem", maxHeight: "150px" }}>
                           <div className="card-body">
                             <h5 className="card-title">{items.name}</h5>
                             <div style={{ height: "38px" }}>

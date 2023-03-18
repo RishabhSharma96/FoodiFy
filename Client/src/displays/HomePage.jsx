@@ -44,7 +44,7 @@ if (openLoader)
     return <Loader />
 
   return (
-    <div>
+    <div style={{"overflow" : "hidden"}}>
       <div><Navbar /></div>
       <div> <Carousel /> </div>
 
