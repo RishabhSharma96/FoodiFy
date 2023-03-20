@@ -1,21 +1,18 @@
 require('dotenv').config()
+require('./connection.js')
 const express = require('express')
 const cors = require('cors')
 
-require('./connection.js')
 
 const server = express() 
-const port = process.env.PORT 
+const port = process.env.PORT || 5000
 
 server.use(express.json())
 
-server.use((req,res,next) => {
-    res.setHeader("Access-Control-Allow-Origin","http://localhost:3000")
-    res.header(
-        "Access-Control-Allow-Headers" ,
-        "Origin, X-Requested-With ,Content-Type, Accept"
-    )
-    next()
+server.use(cors())
+
+server.get("/"  ,(req,res)=>{
+    res.send("running")
 })
 
 server.use(express.json())

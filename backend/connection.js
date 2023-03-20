@@ -20,7 +20,7 @@ const mongoDBConnection = async () => {
                     else {
                         global.food_data = data
                         global.food_category_data = catData
-                        // console.log(catData)
+                        console.log(catData)
                     }
                 })
             })
